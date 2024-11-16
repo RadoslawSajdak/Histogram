@@ -6,5 +6,4 @@
 #SBATCH --time=00:10:00
 #SBATCH -p plgrid-testing
 #SBATCH --output=histogram_omp.out
-cd $HOME/proj/OMP/
 ./main
