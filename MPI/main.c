@@ -30,16 +30,15 @@ struct histogram_t{
 
 void calculate_histogram(uint8_t *img, size_t img_size, struct histogram_t *histogram, int channels)
 {
-    #pragma omp parallel for schedule(static)
-        for(int i = 0; i< img_size; i += channels)
-        {
-            uint8_t R = img[i];
-            uint8_t G = img[i + 1];
-            uint8_t B = img[i + 2];
-            histogram->red[R]++;
-            histogram->green[G]++;
-            histogram->blue[B]++;
-        }
+    for(int i = 0; i< img_size; i += channels)
+    {
+        uint8_t R = img[i];
+        uint8_t G = img[i + 1];
+        uint8_t B = img[i + 2];
+        histogram->red[R]++;
+        histogram->green[G]++;
+        histogram->blue[B]++;
+    }
 }
 
 void save_histogram_to_csv(struct histogram_t *histogram, const char *filename) {

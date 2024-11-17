@@ -1,2 +1,2 @@
-histogram_omp: main.c
+histogram_mpi: main.c
 	mpicc main.c my_timers.c -o main -lm
